@@ -47,7 +47,7 @@ val_C =  initial_C * (multiplier^iteration_C);
  [model] = svmTrain(X, y, val_C, @(X, y) gaussianKernel(X,y, val_sigma));
  predictions = svmPredict(model,Xval);
  error =  mean(double(predictions ~= yval));
- fprintf("For C= %f and sigma = %f, the error was %f",val_C, val_sigma, error);
+ fprintf("For C= %f and sigma = %f, the error was %f \n",val_C, val_sigma, error);
  if (error < max_error)
  {
    max_error = error;
@@ -58,7 +58,9 @@ val_C =  initial_C * (multiplier^iteration_C);
 end
 
 C = C_optimal;
-sigma = sigma_optimal; 
+sigma = sigma_optimal;
+
+fprintf("The minimum error value %f was found for C= %f and sigma = %f",  max_error, C_optimal, sigma_optimal); 
  
  
 % =========================================================================
